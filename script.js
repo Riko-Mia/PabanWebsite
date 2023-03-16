@@ -21,28 +21,49 @@ ellipsis.addEventListener('dblclick', function(){
 const heroSection = document.getElementsByClassName('hero-section')
 const angleLeft = document.getElementsByClassName('fa-angles-left')[0]
 const angleRight = document.getElementsByClassName('fa-angles-right')[0]
+const dots = document.getElementsByClassName('fa-circle-dot')
+
 
 for (let i = 0; i < heroSection.length; i++) {
-    // const y = heroSection[i].style.visibility = "visible";
-    console.log(heroSection[i])
 
 }
-angleLeft.addEventListener('click', function(){
-    if (y) {
-        y
+
+let slidIndex = 1;
+showSlide(slidIndex)
+
+function showSlide(n){
+    if(n> heroSection.length){
+        slidIndex = 1
+    }
+    if(n < 1){
+        slidIndex = heroSection.length
     }
 
+    for (let i = 0; i < heroSection.length; i++) {
+        const element = heroSection[i];
+        element.style.visibility = 'hidden';  
+    }
+    // slidIndex++
+    for (let i = 0; i < dots.length; i++) {
+        const element = dots[i];
+        element.className = element.className.replace(' active', '')
+        
+    }
 
+    heroSection[slidIndex-1].style.visibility = "visible"
+    dots[slidIndex-1].className += " active"
+
+}
+
+angleLeft.addEventListener('click', function(){
+    showSlide(slidIndex += -1)
     
     console.log('This is left.')
 })
 
 angleRight.addEventListener('click', function(){
-    // for (let i = 0; i < heroSection.length; i++) {
-    //     heroSection[i].style.visibility = "visible";
-    //     // const element = heroSection[i];
-    //     // console.log(element)
-    // }
+    showSlide(slidIndex += 1)
+
     console.log('This is right.')
 })
 

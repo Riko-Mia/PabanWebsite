@@ -142,18 +142,17 @@ body{
 }
 .hero-section .img-section{
     width: 50%;
-    text-align: center; 
+    /* text-align: center;  */
 }
 .product-img{
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    object-fit:fill;
     object-position: center;
     
 }
 .fa-angles-left{
     position: absolute;
-    left: 30px;
+    left: -50px;
     font-size: 25px;
     color: rgba(0, 0, 0, 0.651);
     border: 3px solid rgba(110, 107, 107, 0.514);
@@ -163,7 +162,7 @@ body{
 
 .fa-angles-right{
     position: absolute;
-    right: 30px;
+    right: -50px;
     font-size: 25px;
     color: rgba(0, 0, 0, 0.651);
     border: 3px solid rgba(110, 107, 107, 0.514);
@@ -173,10 +172,23 @@ body{
 .hero:hover .fa-angles-left{
     color: rgba(0, 0, 0, 0.397);
     border: 3px solid rgba(214, 211, 211, 0.623);
+    left: 30px;
+    animation: left-move ;
+    animation-duration: 0.5s;
+}
+@keyframes left-move{
+    from{left: -50px}
+    to{left: 30px}
 }
 .hero:hover .fa-angles-right{
     color: rgba(0, 0, 0, 0.397);
-    border: 3px solid rgba(214, 211, 211, 0.623);
+    border: 3px solid rgba(219, 216, 216, 0.623);
+    right: 30px;animation: right-move ;
+    animation-duration: 0.5s;
+}
+@keyframes right-move{
+    from{right: -50px}
+    to{right: 30px}
 }
 
 .dot{
@@ -190,6 +202,9 @@ body{
 
 .fa-circle-dot{
     padding: 0 5px;
+}
+.active{
+    color: rgb(209, 209, 209);
 }
 
 
